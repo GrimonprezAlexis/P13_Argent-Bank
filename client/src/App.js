@@ -5,8 +5,10 @@ import './App.scss'
 import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 import store from './store'
-import Customers from './components/Customer/customers'
 import Home from './components/Home/home'
+import SignIn from './components/SignIn/signin'
+import User from './components/User/user'
+
 
 class App extends Component {
 
@@ -16,6 +18,8 @@ class App extends Component {
         <Router>
           <Switch>
             <Route exact path="/" component={Home} />
+            <Route exact path="/signin" component={SignIn} />
+            <Route exact path="/user" component={User} />
           </Switch>
         </Router>
       </Provider>

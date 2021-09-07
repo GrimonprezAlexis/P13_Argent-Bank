@@ -1,42 +1,62 @@
-import React, { useState, useEffect } from "react";
-import Header from '../Header/header';
-import LogementsList from '../Logements/logementsList';
+import React, {  } from "react";
+import Navigation from '../Navigation/navigation';
 import './home.scss';
 
 const Home = ({ match }) => {
-  const [logements, setLogements] = useState([]);
-
-  //replace componentDidMonth
-    useEffect(() => {
-        fetchLogements();
-    }, []);
-
-    //Get the logements from API
-    const fetchLogements = async () => {
-        const response = await fetch('api/logements');
-        const data = await response.json();
-        setLogements(data);
-    }
     return (
         <>
-        <Header isHomePage={true}></Header>
-        <div className="mb-5rem"></div>
-
-        <div className="container">
-            <div className="banner">
-                <h1>Chez vous, partout et ailleurs</h1>
-                <img src={`${window.location.origin}/img/banner.png`} alt="Fôret et mer" className="banner__img"/>
-            </div>
+        <Navigation></Navigation>
+        <main>
+        <div class="hero">
+            <section class="hero-content">
+            <h2 class="sr-only">Promoted Content</h2>
+            <p class="subtitle">No fees.</p>
+            <p class="subtitle">No minimum deposit.</p>
+            <p class="subtitle">High interest rates.</p>
+            <p class="text">Open a savings account with Argent Bank today!</p>
+            </section>
         </div>
-        <div className="mb-1rem"></div>
-
-        <main className="container">
-            <div className="logements">{
-                logements.map(( l, index ) => (
-                    <LogementsList logement={l} key={index} index={index} />
-                ))
-            }</div>
+        <section class="features">
+            <h2 class="sr-only">Features</h2>
+            <div class="feature-item">
+            <img 
+                src={`${window.location.origin}/img/icon-chat.png`}
+                alt="Chat Icon" 
+                class="feature-icon" />
+            <h3 class="feature-item-title">You are our #1 priority</h3>
+            <p>
+                Need to talk to a representative? You can get in touch through our
+                24/7 chat or through a phone call in less than 5 minutes.
+            </p>
+            </div>
+            <div class="feature-item">
+            <img
+                src={`${window.location.origin}/img/icon-money.png`}
+                alt="Chat Icon"
+                class="feature-icon"
+            />
+            <h3 class="feature-item-title">More savings means higher rates</h3>
+            <p>
+                The more you save with us, the higher your interest rate will be!
+            </p>
+            </div>
+            <div class="feature-item">
+            <img
+                src={`${window.location.origin}/img/icon-security.png`}
+                alt="Chat Icon"
+                class="feature-icon"
+            />
+            <h3 class="feature-item-title">Security you can trust</h3>
+            <p>
+                We use top of the line encryption to make sure your data and money
+                is always safe.
+            </p>
+            </div>
+        </section>
         </main>
+        <footer class="footer">
+        <p class="footer-text">Copyright 2020 Argent Bank</p>
+        </footer>
         </>
     )
 }
