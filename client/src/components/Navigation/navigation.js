@@ -1,8 +1,8 @@
-import React, {  } from "react";
+import React from "react";
 import { Link } from 'react-router-dom';
 
+const Navigation = ({ profile }) => {
 
-const Navigation = ({ match }) => {
     return (
         <>
         <nav class="main-nav">
@@ -15,7 +15,8 @@ const Navigation = ({ match }) => {
             <h1 class="sr-only">Argent Bank</h1>
             </a>
             <div>
-                <Link to='/signin' className="main-nav-item"><i class="fa fa-user-circle"></i> Sign In</Link>
+                { profile && <Link to='/user' className="main-nav-item"><i class="fa fa-user-circle"></i> {profile.firstName} {profile.lastName}</Link> }
+                { !profile && <Link to='/signin' className="main-nav-item"><i class="fa fa-user-circle"></i> Sign In</Link> }
             </div>
         </nav>
         </>

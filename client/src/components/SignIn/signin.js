@@ -15,17 +15,15 @@ const SignIn = ({ match }) => {
 
 
   const onSubmit = e => {
-        /*         
-        axios.post('/api/user/login', {
-            email: e.email,
-            password: e.password
-        }) */
         axios.post('http://localhost:3001/api/v1/user/login', {
             email: e.email,
             password: e.password
         })
         .then(res => {
-            if(res.data && res.data.status === 200) setRedirect(true);
+            if(res.data && res.data.status === 200) {
+                localStorage.setItem('jwt', res.data.body.token);
+                setRedirect(true);
+            }
         })
         .catch(error => {
             console.error('There was an error!', error);

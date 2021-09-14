@@ -1,9 +1,12 @@
-import {GET_CUSTOMERS} from '../actions/constants'
+import {USER_LOGIN} from '../actions/constants'
 
 const customerReducer = (state = [], {type, payload}) => {
     switch (type) {
-      case GET_CUSTOMERS:
-        return payload
+      case USER_LOGIN:
+        return {
+          ...state,
+          profile: payload
+        };
       default:
         return state
     }
