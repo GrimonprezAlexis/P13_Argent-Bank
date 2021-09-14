@@ -1,27 +1,72 @@
-import React, {  } from "react";
+import React, { useState } from "react";
+import { Redirect } from 'react-router-dom';
+import { useForm } from "react-hook-form";
+import axios from 'axios';
+
 
 const SignIn = ({ match }) => {
+    const {
+        register,
+        handleSubmit,
+        formState: { errors }
+    } = useForm();
+
+    const [redirect, setRedirect] = useState();
+
+
+  const onSubmit = e => {
+        /*         
+        axios.post('/api/user/login', {
+            email: e.email,
+            password: e.password
+        }) */
+        axios.post('http://localhost:3001/api/v1/user/login', {
+            email: e.email,
+            password: e.password
+        })
+        .then(res => {
+            if(res.data && res.data.status === 200) setRedirect(true);
+        })
+        .catch(error => {
+            console.error('There was an error!', error);
+            setRedirect(false);  
+        });
+    }
+
+    if(redirect){
+        return <Redirect to="/user" />
+    }
+
     return (
         <>
-        <main class="main bg-dark">
-            <section class="sign-in-content">
-                <i class="fa fa-user-circle sign-in-icon"></i>
+        <main className="main bg-dark">
+            <section className="sign-in-content">
+                <i className="fa fa-user-circle sign-in-icon"></i>
                 <h1>Sign In</h1>
-                <form>
-                <div class="input-wrapper">
-                    <label for="username">Username</label>
-                    <input type="text" id="username" />
+                <form onSubmit={handleSubmit(onSubmit)}>
+                <div className="input-wrapper">
+                    <label for="email">Email</label>
+                    <input type="email" id="email"
+                        {...register("email", {
+                            required: true
+                        })}
+                    />
+                    {errors.email ? errors.email.type === "required" && <p>This field is required</p> : ''}
                 </div>
-                <div class="input-wrapper">
+                <div className="input-wrapper">
                     <label for="password">Password</label>
-                    <input type="password" id="password" />
+                    <input type="password" id="password"
+                        {...register("password", {
+                        required: true
+                        })}
+                    />
+                    {errors.password ? errors.password.type === "required" && <p>This field is required</p> : ''}
                 </div>
-                <div class="input-remember">
+                <div className="input-remember">
                     <input type="checkbox" id="remember-me" />
                     <label for="remember-me">Remember me</label>
                 </div>
-                <a href="./user.html" class="sign-in-button">Sign In</a>
-                <button class="sign-in-button">Sign In</button>   
+                <input className="sign-in-button" type="submit" name="Sign In" />
                 </form>
             </section>
         </main>

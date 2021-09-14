@@ -6,6 +6,9 @@ Projet 13 - Utilisez une API pour un compte utilisateur bancaire avec React
 ### Fonction
 - Développeur web
 
+✅
+❌
+
 ### Details du projet
 Argent Bank essai de percer dans le secteur et a besoin d'aide pour mettre en place son application web React pour le nouveau système d'authentification des utilisateurs.
 

@@ -1,19 +1,18 @@
 const cors = require('cors');
-const data = require('../../data/data.json');
+const axios = require('axios');
 
 module.exports = (router) => {
 
-    router.get('/customers', cors(), (req, res) => {
-        const customers = [
-            { id: 1, firstName: 'Alexis', lastName: 'Grz' },
-            { id: 2, firstName: 'John', lastName: 'Doe' },
-            { id: 3, firstName: 'Steve', lastName: 'Smith' }
-        ];
+    router.post('/user/login', (req, res) => {
 
-        res.json(customers);
-    });
-    router.get('/logements', cors(), (req, res) => {
-        res.send(data);
+        console.log(req);
+        axios.post('http://localhost:3001/api/v1/user/login', req.body)
+        .then(res => {
+            console.log(res);
+        })
+        .catch(error => {
+            console.error(error);
+        });
     });
     return router;
 }

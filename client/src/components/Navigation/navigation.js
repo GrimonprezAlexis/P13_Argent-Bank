@@ -1,4 +1,6 @@
 import React, {  } from "react";
+import { Link } from 'react-router-dom';
+
 
 const Navigation = ({ match }) => {
     return (
@@ -13,10 +15,7 @@ const Navigation = ({ match }) => {
             <h1 class="sr-only">Argent Bank</h1>
             </a>
             <div>
-            <a class="main-nav-item" href="./sign-in.html">
-                <i class="fa fa-user-circle"></i>
-                Sign In
-            </a>
+                <Link to='/signin' className="main-nav-item"><i class="fa fa-user-circle"></i> Sign In</Link>
             </div>
         </nav>
         </>
