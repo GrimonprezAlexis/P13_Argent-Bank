@@ -1,27 +1,34 @@
-import React, { Component } from 'react'
-import { Provider } from 'react-redux'
-import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Home from './components/Home/home';
+import SignIn from './components/SignIn/signin';
+import User from './components/User/user';
+import { getUser } from './services/user-service';
+import { USER_LOGIN } from './store/actions/constants';
 
-import store from './store'
-import Home from './components/Home/home'
-import SignIn from './components/SignIn/signin'
-import User from './components/User/user'
+const App = () => {
+ const dispatch = useDispatch();
 
-class App extends Component {
+    useEffect(() => {
+      getUser().then(user => {
+        dispatch({
+            type: USER_LOGIN,
+            payload: user.data.body
+        });
+      });
 
-  render () {
+    // empty dependency array means this effect will only run once (like componentDidMount in classes)
+    }, []);
+  
     return (
-      <Provider store={ store }>
-        <Router>
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/signin" component={SignIn} />
-            <Route exact path="/user" component={User} />
-          </Switch>
-        </Router>
-      </Provider>
+      <Router>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/signin" component={SignIn} />
+          <Route exact path="/user" component={User} />
+        </Switch>
+      </Router>
     )
-  }
 }
-
 export default App

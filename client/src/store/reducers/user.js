@@ -1,6 +1,6 @@
 import {USER_LOGIN} from '../actions/constants'
 
-const customerReducer = (state = [], {type, payload}) => {
+const userReducer = (state = [], {type, payload}) => {
     switch (type) {
       case USER_LOGIN:
         return {
@@ -12,4 +12,4 @@ const customerReducer = (state = [], {type, payload}) => {
     }
 }
 
-export default customerReducer;
+export default userReducer;

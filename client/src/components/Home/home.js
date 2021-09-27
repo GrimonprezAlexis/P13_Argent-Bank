@@ -1,34 +1,10 @@
+import React from "react";
+import { useSelector } from 'react-redux';
 import Navigation from '../Navigation/navigation';
 import './home.scss';
 
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from 'react-redux'
-
-import axios  from 'axios';
-import { USER_LOGIN } from "../../store/actions/constants"; 
-
 const Home = () => {
-
-    const profile = useSelector(state => state.customers.profile);
-    const dispatch = useDispatch();
-
-    const config = {
-        headers: {
-            "Authorization" : `Bearer ${localStorage.getItem('jwt')}`
-        },
-    };
-
-    useEffect(() => {
-        axios.post('http://localhost:3001/api/v1/user/profile', {}, config)
-            .then(response => {
-                dispatch({
-                    type: USER_LOGIN,
-                    payload: response.data.body
-                });
-            });
-
-    // empty dependency array means this effect will only run once (like componentDidMount in classes)
-    }, []);
+    const profile = useSelector(state => state.user.profile);
 
     return (
         <>
