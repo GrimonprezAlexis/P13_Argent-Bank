@@ -1,17 +1,45 @@
-import React from "react";
-import { useSelector } from 'react-redux';
+import React, { useLayoutEffect, useRef, useState } from "react";
+import { useDispatch, useSelector } from 'react-redux';
+import { USER_LOGOUT } from "../../store/actions/constants";
+import { useHistory } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
+
+
 
 const User = ({ match }) => {
+    const dispatch = useDispatch();
+    const history = useHistory();
 
-    //const userContext = useContextontext(UserContext); 
-    //console.log('>>', userContext);
     const profile = useSelector(state => state.user.profile);
-    console.log('>>>>', profile);
+    console.log('>>>> profile', profile);
 
-    
+    const [redirect, setRedirect] = useState();
+
+    const firstUpdate = useRef(true);
+    useLayoutEffect(() => {
+        if (firstUpdate.current) {
+            firstUpdate.current = false;
+        } else {
+            if(!profile) {
+                //localStorage.removeItem('jwt')
+                setRedirect(true);
+            };            
+        }
+    });
+
+    if(redirect){
+        return <Redirect to="/signin" />
+    }
+
+
     return (
         <>
         <main className="main bg-dark">
+            <button onClick={() => dispatch({
+                type: USER_LOGOUT,
+                payload: {},
+            })}>Logout</button>
+            
         <div className="header">
             <h1>Welcome back<br />  Tony Jarvis!</h1>
             <button className="edit-button">Edit Name</button>

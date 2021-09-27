@@ -1,4 +1,4 @@
-import {USER_LOGIN} from './constants';
+import {GET_USER_PROFILE} from './constants';
 import axios  from 'axios';
 
 
@@ -11,7 +11,7 @@ export const getUser = () => dispatch => {
   return axios.post('http://localhost:3001/api/v1/user/profile', {}, config)
     .then(response => {
         dispatch({
-            type: USER_LOGIN,
+            type: GET_USER_PROFILE,
             payload: response.data.body
         });
     });

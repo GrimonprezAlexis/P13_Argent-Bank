@@ -1,7 +1,9 @@
-import React, { useState } from "react";
-import { Redirect } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import axios from 'axios';
+import { useDispatch, useSelector } from "react-redux";
+import { Redirect } from 'react-router-dom';
+import { getJWT } from "../../services/user-service";
+import { GET_JWT } from "../../store/actions/constants";
 
 
 const SignIn = ({ match }) => {
@@ -11,28 +13,16 @@ const SignIn = ({ match }) => {
         formState: { errors }
     } = useForm();
 
-    const [redirect, setRedirect] = useState();
+    const dispatch = useDispatch();
 
 
-  const onSubmit = e => {
-        axios.post('http://localhost:3001/api/v1/user/login', {
-            email: e.email,
-            password: e.password
-        })
-        .then(res => {
-            if(res.data && res.data.status === 200) {
-                localStorage.setItem('jwt', res.data.body.token);
-                setRedirect(true);
-            }
-        })
-        .catch(error => {
-            console.error('There was an error!', error);
-            setRedirect(false);  
+  const onSubmit = async e => {
+
+    const jwt = await getJWT(e);
+        dispatch({
+            type: GET_JWT,
+            payload: jwt,
         });
-    }
-
-    if(redirect){
-        return <Redirect to="/user" />
     }
 
     return (
@@ -43,7 +33,7 @@ const SignIn = ({ match }) => {
                 <h1>Sign In</h1>
                 <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="input-wrapper">
-                    <label for="email">Email</label>
+                    <label htmlFor="email">Email</label>
                     <input type="email" id="email"
                         {...register("email", {
                             required: true
@@ -52,7 +42,7 @@ const SignIn = ({ match }) => {
                     {errors.email ? errors.email.type === "required" && <p>This field is required</p> : ''}
                 </div>
                 <div className="input-wrapper">
-                    <label for="password">Password</label>
+                    <label htmlFor="password">Password</label>
                     <input type="password" id="password"
                         {...register("password", {
                         required: true
@@ -62,7 +52,7 @@ const SignIn = ({ match }) => {
                 </div>
                 <div className="input-remember">
                     <input type="checkbox" id="remember-me" />
-                    <label for="remember-me">Remember me</label>
+                    <label htmlFor="remember-me">Remember me</label>
                 </div>
                 <input className="sign-in-button" type="submit" name="Sign In" />
                 </form>
