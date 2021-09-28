@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from 'react-router-dom';
 
 const Navigation = ({ profile }) => {
-
     return (
         <>
         <nav className="main-nav">

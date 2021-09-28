@@ -1,36 +1,17 @@
-import React, { useLayoutEffect, useRef, useState } from "react";
+import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import { USER_LOGOUT } from "../../store/actions/constants";
-import { useHistory } from 'react-router-dom';
-import { Redirect } from 'react-router-dom';
+import { Redirect, useHistory } from 'react-router-dom';
+import { getUser } from "../services/user-service";
+import { GET_USER_PROFILE, USER_LOGOUT } from "../store/actions/constants";
 
 
-
-const User = ({ match }) => {
+const User = () => {
     const dispatch = useDispatch();
-    const history = useHistory();
-
-    const profile = useSelector(state => state.user.profile);
-    console.log('>>>> profile', profile);
-
-    const [redirect, setRedirect] = useState();
-
-    const firstUpdate = useRef(true);
-    useLayoutEffect(() => {
-        if (firstUpdate.current) {
-            firstUpdate.current = false;
-        } else {
-            if(!profile) {
-                //localStorage.removeItem('jwt')
-                setRedirect(true);
-            };            
-        }
-    });
-
-    if(redirect){
-        return <Redirect to="/signin" />
+    const profile = useSelector((state) => state.user.profile);
+    
+    if (!profile) {
+        return <Redirect to="/signin" />;
     }
-
 
     return (
         <>
@@ -41,7 +22,7 @@ const User = ({ match }) => {
             })}>Logout</button>
             
         <div className="header">
-            <h1>Welcome back<br />  Tony Jarvis!</h1>
+            <h1>Welcome back<br />  {profile.firstName} {profile.lastName} !</h1>
             <button className="edit-button">Edit Name</button>
         </div>
         <h2 className="sr-only">Accounts</h2>

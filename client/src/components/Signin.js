@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
+import { useHistory } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from 'react-router-dom';
-import { getJWT } from "../../services/user-service";
-import { GET_JWT } from "../../store/actions/constants";
+import { getJWT, getUser } from "../services/user-service";
+import { GET_JWT, GET_USER_PROFILE } from "../store/actions/constants";
 
 
 const SignIn = ({ match }) => {
@@ -14,17 +15,34 @@ const SignIn = ({ match }) => {
     } = useForm();
 
     const dispatch = useDispatch();
+    const history = useHistory();
+    const jwt = localStorage.getItem('jwt');
+
+    useEffect(() => {
+         if (jwt) {
+             getUser(jwt).then(user => {
+                 dispatch({
+                     type: GET_USER_PROFILE,
+                     payload: user
+                 });
+                 history.push('/user');
+             });
+         }
+    }, [jwt]);
 
 
-  const onSubmit = async e => {
-
-    const jwt = await getJWT(e);
-        dispatch({
-            type: GET_JWT,
-            payload: jwt,
-        });
+    const onSubmit = async e => {
+        const jwt = await getJWT(e);
+        if (history && jwt) {
+            getUser(jwt).then(user => {
+                dispatch({
+                    type: GET_USER_PROFILE,
+                    payload: user
+                });
+                history.push('/user');
+            });
+        }
     }
-
     return (
         <>
         <main className="main bg-dark">
