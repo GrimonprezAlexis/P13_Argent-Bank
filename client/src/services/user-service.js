@@ -18,3 +18,19 @@ export async function getJWT(e) {
     localStorage.setItem('jwt', res.data.body.token);
     return res.data.body.token;
 }
+
+export async function updateUserProfile(e, jwt){
+    const config = {
+        headers: {
+            "Authorization" : `Bearer ${jwt}`
+        },
+    };
+    const res = await axios.put('http://localhost:3001/api/v1/user/profile', {
+        firstName: e.firstName,
+        lastName: e.lastName
+    }, 
+        config
+    );
+    console.log('res', res);
+    return res.data.body;
+}

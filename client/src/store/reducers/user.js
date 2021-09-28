@@ -1,4 +1,4 @@
-import {GET_JWT, GET_USER_PROFILE, USER_LOGOUT} from '../actions/constants'
+import {GET_JWT, GET_USER_PROFILE, USER_LOGOUT, UPDATE_USER_PROFILE} from '../actions/constants'
 
 const userReducer = (state = [], {type, payload}) => {
     switch (type) {
@@ -16,6 +16,11 @@ const userReducer = (state = [], {type, payload}) => {
         return {
           ...state,
           jwt: payload,
+        };
+      case UPDATE_USER_PROFILE:
+        return {
+          ...state,
+          profile: payload
         };
       default:
         return state

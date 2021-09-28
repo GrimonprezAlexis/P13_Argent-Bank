@@ -7,12 +7,27 @@
 @import "./reset.scss"; //Reset CSS
 @import "./boostrap/bootstrap.scss"; //Boostrap 4.0 (https://grafikart.fr/tutoriels/sass-bootstrap-1110#autoplay)
 
+
 @import "./variables.scss"; //Variables
 @import "./modal.scss"; //Modal
 @import "./animations.scss"; //Animations
 
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 @import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+
+/*--------------------------------------------------------------
+# Loop css
+--------------------------------------------------------------*/
+@for $i from 0 to 10 {
+  .mb-#{$i}rem {
+    margin-bottom: #{$i}rem;
+  }
+  .mt-#{$i}rem {
+    margin-top: #{$i}rem;
+  }
+}
+
 
 /*--------------------------------------------------------------
 # Legacy css
@@ -22,7 +37,7 @@
     font-size: 1.4rem;
 }
 
-%sr-only {
+.sr-only {
   border: 0 !important;
   clip: rect(1px, 1px, 1px, 1px) !important; /* 1 */
   -webkit-clip-path: inset(50%) !important;
