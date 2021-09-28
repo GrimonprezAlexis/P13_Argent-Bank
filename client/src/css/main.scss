@@ -5,12 +5,14 @@
 # Import
 --------------------------------------------------------------*/
 @import "./reset.scss"; //Reset CSS
+@import "./boostrap/bootstrap.scss"; //Boostrap 4.0 (https://grafikart.fr/tutoriels/sass-bootstrap-1110#autoplay)
+
 @import "./variables.scss"; //Variables
 @import "./modal.scss"; //Modal
 @import "./animations.scss"; //Animations
 
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
-
+@import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 
 /*--------------------------------------------------------------
 # Legacy css
@@ -18,6 +20,20 @@
 %bold_text {
     font-weight: 900;
     font-size: 1.4rem;
+}
+
+%sr-only {
+  border: 0 !important;
+  clip: rect(1px, 1px, 1px, 1px) !important; /* 1 */
+  -webkit-clip-path: inset(50%) !important;
+  clip-path: inset(50%) !important; /* 2 */
+  height: 1px !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+  white-space: nowrap !important; /* 3 */
 }
 
 html {
@@ -54,3 +70,5 @@ a {
 input:focus, button:focus{
     outline-color: $color__primary;
 } */
+
+

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { BrowserRouter as Router, Route, Switch, useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { Route, Switch } from 'react-router-dom';
 import Home from './components/Home';
 import SignIn from './components/Signin';
 import User from './components/User';
@@ -21,7 +21,7 @@ const App = () => {
                 });
             });
         }
-  }, [jwt]);
+  }, [dispatch, jwt]);
   
     return (
       <Switch>

@@ -1,26 +1,20 @@
-import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
-import { useDispatch, useSelector } from 'react-redux';
-import { Redirect, useHistory } from 'react-router-dom';
-import { getUser } from "../services/user-service";
-import { GET_USER_PROFILE, USER_LOGOUT } from "../store/actions/constants";
+import React from "react";
+import { useSelector } from 'react-redux';
+import { Redirect } from 'react-router-dom';
+import '../css/user.scss';
+import Navigation from './Navigation';
 
 
 const User = () => {
-    const dispatch = useDispatch();
     const profile = useSelector((state) => state.user.profile);
-    
     if (!profile) {
         return <Redirect to="/signin" />;
     }
 
     return (
         <>
-        <main className="main bg-dark">
-            <button onClick={() => dispatch({
-                type: USER_LOGOUT,
-                payload: {},
-            })}>Logout</button>
-            
+        <Navigation profile={profile}></Navigation>
+        <main className="main bg-dark">            
         <div className="header">
             <h1>Welcome back<br />  {profile.firstName} {profile.lastName} !</h1>
             <button className="edit-button">Edit Name</button>

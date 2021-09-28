@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { useHistory } from 'react-router-dom';
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from 'react-router-dom';
+import { useDispatch } from "react-redux";
+import { useHistory } from 'react-router-dom';
 import { getJWT, getUser } from "../services/user-service";
-import { GET_JWT, GET_USER_PROFILE } from "../store/actions/constants";
+import { GET_USER_PROFILE } from "../store/actions/constants";
+import Navigation from './Navigation';
+import '../css/signin.scss';
 
 
 const SignIn = ({ match }) => {
@@ -28,7 +29,7 @@ const SignIn = ({ match }) => {
                  history.push('/user');
              });
          }
-    }, [jwt]);
+    }, [dispatch, history, jwt]);
 
 
     const onSubmit = async e => {
@@ -45,6 +46,7 @@ const SignIn = ({ match }) => {
     }
     return (
         <>
+        <Navigation></Navigation>
         <main className="main bg-dark">
             <section className="sign-in-content">
                 <i className="fa fa-user-circle sign-in-icon"></i>
