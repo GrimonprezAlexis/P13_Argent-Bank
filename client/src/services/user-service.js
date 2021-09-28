@@ -32,5 +32,5 @@ export async function updateUserProfile(e, jwt){
         config
     );
     console.log('res', res);
-    return res.data.body;
+    return res.data;
 }

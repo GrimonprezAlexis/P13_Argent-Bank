@@ -37,10 +37,10 @@ Argent Bank essai de percer dans le secteur et a besoin d'aide pour mettre en pl
 - Contact / Avery Moreau VP Engineering Argent Bank
 
 > Phase 1
-- L'utilisateur peut visiter la page d'accueil
-- L'utilisateur peut se connecter / déconnecter au sytème
-- L'utilisateur ne peut voir les informations relatives à son propre profil qu'après s'être connecté avec succès
-- L'utilisateur peut modifier le profil et conserver les données dans la base de données
+- L'utilisateur peut visiter la page d'accueil ✅
+- L'utilisateur peut se connecter / déconnecter au sytème ✅
+- L'utilisateur ne peut voir les informations relatives à son propre profil qu'après s'être connecté avec succès ✅
+- L'utilisateur peut modifier le profil et conserver les données dans la base de données ✅
 
 > Phase 2
 - L'utilisateur peut visualiser toutes leurs transactions pour le mois en cours
