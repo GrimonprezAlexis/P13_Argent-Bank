@@ -6,7 +6,7 @@
 1. Fork Backend and use README to run API on localhost:3001
 https://github.com/GrimonprezAlexis/P13-Argent-Bank-API
 
-2. Install dependencies in frontend `npm install`
+2. Install dependencies in `frontend` folder `npm install`
 3. Run the app `npm run start`
 
 ## Backend Endpoint
