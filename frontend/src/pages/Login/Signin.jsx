@@ -3,11 +3,11 @@ import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { useHistory } from 'react-router-dom';
 
-import { getJWT, getUser } from '../services/userService';
-import { GET_USER_PROFILE } from "../store/actions/constants";
+import { getJWT, getUser } from '../../services/userService';
+import { GET_USER_PROFILE } from "../../store/actions/constants";
 
-import Navigation from '../components/Navigation';
-import '../css/signin.scss';
+import Navigation from '../../components/Navigation/Navigation';
+import './signin.scss';
 
 
 const SignIn = ({ match }) => {

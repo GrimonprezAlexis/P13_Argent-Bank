@@ -3,11 +3,12 @@ import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
-import { updateUserProfile } from '../services/userService';
-import { UPDATE_USER_PROFILE } from "../store/actions/constants";
+import { updateUserProfile } from '../../services/userService';
+import { UPDATE_USER_PROFILE } from "../../store/actions/constants";
 
-import Navigation from '../components/Navigation';
-import '../css/user.scss';
+import Navigation from '../../components/Navigation/Navigation';
+
+import './user.scss';
 
 const User = () => {
     const profile = useSelector((state) => state.user.profile);
@@ -20,7 +21,7 @@ const User = () => {
     const { register, handleSubmit  } = useForm();
     
     if (!profile) {
-        return <Redirect to="/signin" />;
+        return <Redirect to="/login" />;
     }
 
     const getFormUpdateProfile = () => {

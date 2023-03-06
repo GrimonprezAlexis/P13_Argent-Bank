@@ -10,7 +10,6 @@
 
 @import "./variables.scss"; //Variables
 @import "./modal.scss"; //Modal
-@import "./animations.scss"; //Animations
 
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 @import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
@@ -32,10 +31,7 @@
 /*--------------------------------------------------------------
 # Legacy css
 --------------------------------------------------------------*/
-%bold_text {
-    font-weight: 900;
-    font-size: 1.4rem;
-}
+
 
 .sr-only {
   border: 0 !important;
@@ -72,18 +68,3 @@ body {
     user-select: none;
     overflow-x: hidden;
 }
-
-
-/* ul {
-  padding: 0;
-  list-style: none;
-}
-a {
-    text-decoration: none;
-    color: inherit;
-}
-input:focus, button:focus{
-    outline-color: $color__primary;
-} */
-
-

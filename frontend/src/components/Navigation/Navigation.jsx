@@ -1,8 +1,9 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { Link, useHistory } from 'react-router-dom';
-import '../css/navigation.scss';
-import { USER_LOGOUT } from "../store/actions/constants";
+import { USER_LOGOUT } from "../../store/actions/constants";
+
+import './navigation.scss';
 
 const Navigation = ({ profile }) => {
     const dispatch = useDispatch();
@@ -30,7 +31,7 @@ const Navigation = ({ profile }) => {
             </Link>
             <div>
                 { profile && <Link to='/user' className="main-nav-item"><i className="fa fa-user-circle"></i> {profile.firstName} {profile.lastName}</Link> }
-                { !profile && <Link to='/signin' className="main-nav-item"><i className="fa fa-user-circle"></i> Sign In</Link> }
+                { !profile && <Link to='/login' className="main-nav-item"><i className="fa fa-user-circle"></i> Sign In</Link> }
 
 
                 { profile && 

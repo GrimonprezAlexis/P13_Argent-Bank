@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from 'react-redux';
-import Navigation from '../components/Navigation';
-import '../css/home.scss';
+import Navigation from '../../components/Navigation/Navigation';
+import './home.scss';
 
 const Home = () => {
     const profile = useSelector(state => state.user.profile);
