@@ -1,9 +1,15 @@
 ## Prerequis
-- Node.js v12 (`node -v)
-- MongoDB Community Server (mongo -v)
+- Node.js v12 (`node -v`)
+- MongoDB Community Server (`mongo -v`)
 
-## Backend
-Endpoint
+## Install
+1. Fork Backend and use README to run API on localhost:3001
+https://github.com/GrimonprezAlexis/P13-Argent-Bank-API
+
+2. Install dependencies in frontend `npm install`
+3. Run the app `npm run start`
+
+## Backend Endpoint
 - http://localhost:3001/api-docs/#/
 - http://localhost:3001/api/v1/user
 
