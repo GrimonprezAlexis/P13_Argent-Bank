@@ -5,15 +5,34 @@
 # Import
 --------------------------------------------------------------*/
 @import "./reset.scss"; //Reset CSS
-@import "./boostrap/bootstrap.scss"; //Boostrap 4.0 (https://grafikart.fr/tutoriels/sass-bootstrap-1110#autoplay)
-
-
 @import "./variables.scss"; //Variables
 @import "./modal.scss"; //Modal
 
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 @import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 
+
+
+html {
+  height: 100%; 
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
+
+body {
+  height: 100%; 
+  user-select: none;          /* Likely future */     
+  -webkit-user-select: none;  /* Chrome all / Safari all */
+  -moz-user-select: none;     /* Firefox all */
+  -ms-user-select: none;      /* IE 10+ */
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
 
 /*--------------------------------------------------------------
 # Loop css
@@ -45,26 +64,4 @@
   position: absolute !important;
   width: 1px !important;
   white-space: nowrap !important; /* 3 */
-}
-
-html {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-    height: 100%; 
-}
-
-body {
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    user-select: none;          /* Likely future */    
-    -webkit-user-select: none;  /* Chrome all / Safari all */
-    -moz-user-select: none;     /* Firefox all */
-    -ms-user-select: none;      /* IE 10+ */
-    user-select: none;
-    overflow-x: hidden;
 }

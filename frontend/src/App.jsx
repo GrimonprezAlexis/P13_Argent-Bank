@@ -26,12 +26,14 @@ const App = () => {
   }, [dispatch, jwt]);
   
     return (
+      <div className="app">
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/login" component={SignIn} />
         <Route exact path="/user" component={User} />
         <Route component={Error}/>
       </Switch>
+      </div>
     )
 }
 export default App

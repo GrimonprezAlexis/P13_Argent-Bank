@@ -1,5 +1,8 @@
 .main {
   flex: 1;
+  height: 45rem;
+  margin: 0;
+  padding: 0;
 }
 
 .bg-dark {
@@ -24,8 +27,9 @@
   background-color: white;
   width: 300px;
   margin: 0 auto;
-  /* margin-top: 3rem; */
   padding: 2rem;
+  position: relative;
+  top: 3rem;
 }
 
 .sign-in-icon {

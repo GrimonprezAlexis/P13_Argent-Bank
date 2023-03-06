@@ -25,11 +25,20 @@
   font-weight: bold;
   font-size: 1rem;
   margin: 0;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #2c3e50;
 }
 
 .hero-content .text {
   margin-bottom: 0;
   font-size: 0.9rem;
+
+  margin-top: 1rem;
+  color: #2c3e50;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
 @media (min-width: 920px) {
@@ -41,8 +50,8 @@
   .hero-content {
     position: absolute;
     top: 50px;
-    right: 50px;
-    width: 300px;
+    right: 65px;
+    width: 380px;
     margin: 2rem;
   }
 
@@ -58,6 +67,14 @@
 .features {
   display: flex;
   flex-direction: column;
+
+  p {
+    margin-top: 1rem;
+    color: #2c3e50;
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-align: center;
+  }
 }
 
 @media (min-width: 920px) {
@@ -67,7 +84,7 @@
 }
 
 .feature-icon {
-  width: 100px;
+  width: 9vw;
   border: 10px solid #00bc77;
   border-radius: 50%;
   padding: 1rem;
@@ -76,26 +93,16 @@
 .feature-item {
   flex: 1;
   padding: 2.5rem;
+  text-align: center;
 }
 
 .feature-item-title {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
   color: #222;
   font-size: 1.25rem;
   font-weight: bold;
   margin-bottom: 0.5rem;
-}
-
-
-.footer {
-  display: flex;
-  justify-content: center;
-  border-top: 2px solid #ccc;
-  padding: 2rem 0 1.5rem;
-}
-
-.footer-text {
-  margin: 0;
-  padding: 0;
+  margin-top: 1.5rem;
 }
 
 

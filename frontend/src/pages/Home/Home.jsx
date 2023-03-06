@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from 'react-redux';
+import Footer from "../../components/Footer/Footer";
 import Navigation from '../../components/Navigation/Navigation';
 import './home.scss';
 
@@ -57,9 +58,7 @@ const Home = () => {
             </div>
         </section>
         </main>
-        <footer className="footer">
-        <p className="footer-text">Copyright 2020 Argent Bank</p>
-        </footer>
+        <Footer />
         </>
     )
 }

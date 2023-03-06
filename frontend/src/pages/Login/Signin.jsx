@@ -8,6 +8,7 @@ import { GET_USER_PROFILE } from "../../store/actions/constants";
 
 import Navigation from '../../components/Navigation/Navigation';
 import './signin.scss';
+import Footer from "../../components/Footer/Footer";
 
 
 const SignIn = ({ match }) => {
@@ -82,6 +83,7 @@ const SignIn = ({ match }) => {
                 </form>
             </section>
         </main>
+        <Footer />
         </>
     )
 }
