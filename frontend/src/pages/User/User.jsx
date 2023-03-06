@@ -9,6 +9,7 @@ import { UPDATE_USER_PROFILE } from "../../store/actions/constants";
 import Navigation from '../../components/Navigation/Navigation';
 
 import './user.scss';
+import Footer from "../../components/Footer/Footer";
 
 const User = () => {
     const profile = useSelector((state) => state.user.profile);
@@ -120,6 +121,7 @@ const User = () => {
             </div>
         </section>
         </main>
+        <Footer />
         </>
     )
 }
