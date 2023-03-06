@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
-import Home from './components/Home';
-import SignIn from './components/Signin';
-import User from './components/User';
-import { getUser } from './services/user-service';
+
+import Home from './pages/Home';
+import SignIn from './pages/Signin';
+import User from './pages/User';
+
+import { getUser } from './services/userService';
 import { GET_USER_PROFILE } from './store/actions/constants';
 
 

@@ -1,166 +1,198 @@
-swagger: '2.0'
+swagger: "2.0"
 info:
-  title: Bank Argent API documentation
-  description: Contains all available API endpoints in this codebase
-  version: '1.0.0'
-  termsOfService: 'http://swagger.io/terms/'
-host: localhost:3001
-basePath: /api/v1
+  description: "This is a sample API about Argent Bank for OCR Project 13 phase 2 (transaction)."
+  version: "1.0.0"
+  title: "Swagger Argent Bank"
+  termsOfService: "http://swagger.io/terms/"
+  contact:
+    email: "apiteam@swagger.io"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "URL_API"
+basePath: "/api/v1/user"
+tags:
+- name: "Transaction"
+  description: "Everything about transactions"
+  externalDocs:
+    description: "Find out more"
+    url: "http://swagger.io"
 schemes:
-  - http
+- "https"
+- "http"
 paths:
-  /user/login:
+  /transactions:
+    get:
+      tags:
+      - "Transaction"
+      summary: "Finds all transactions"
+      description: "View all of a user's transactions for the current month"
+      operationId: "findAllTransactions"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "transactionMonthDate"
+        in: "query"
+        description: "Month date values that need to be considered for filter"
+        required: false
+        type: "string"
+        items:
+          enum:
+          - "2021-09"
+          default: "2021-09"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Transaction"
+        "400":
+          description: "Invalid status value"
+
+  /transactions/:id:
+    get:
+      tags:
+      - "Transaction"
+      summary: "Get transaction by transactionId"
+      description: ""
+      operationId: "getTransactionById"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "transactionId"
+        in: "query"
+        description: "id of the transacton"
+        required: true
+        type: "string"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/ApiResponse"
+        "400":
+          description: "Invalid transactionId"
+        "404":
+          description: "transaction not found"
+          
+          
+          
     post:
       tags:
-        - User Module
-      summary: Login
-      description: API for Login
-      parameters:
-        - in: body
-          name: body
-          description: Login Payload
-          required: true
-          schema:
-            $ref: '#/definitions/Login'
+      - "Transaction"
+      summary: "Add a new transaction"
+      description: ""
+      operationId: "addTransactionById"
+      consumes:
+      - "application/json"
       produces:
-        - application/json
-      responses:
-        '200':
-          description: Login Successfully
-          schema:
-            $ref: '#/definitions/LoginResponse'
-        '400':
-          description: Invalid Fields
-        '500':
-          description: Internal Server Error
-  /user/signup:
-    post:
-      tags:
-        - User Module
-      summary: Signup
-      description: API for Signup
+      - "application/json"
       parameters:
-        - in: body
-          name: body
-          description: Signup Payload
-          required: true
-          schema:
-            $ref: '#/definitions/User'
-      produces:
-        - application/json
+      - name: "transactionId"
+        in: "query"
+        description: "id of the transacton"
+        required: true
+        type: "string"
       responses:
-        '200':
-          description: Signup Successfully
+        "200":
+          description: "successful operation"
           schema:
-            $ref: '#/definitions/ApiResponse'
-        '400':
-          description: Invalid Fields
-        '500':
-          description: Internal Server Error
-  /user/profile:
-    post:
-      security:
-        - Bearer: []
-      tags:
-        - User Module
-      summary: User Profile API
-      description: API for fetching a user profile
-      parameters:
-        - in: header
-          name: Authorization
-          description: Attach Bearer JWT token
-          required: true
-      produces:
-        - application/json
-      responses:
-        '200':
-          description: User profile retrieved successully
-          schema:
-            $ref: '#/definitions/ApiResponse'
-        '400':
-          description: Invalid Fields
-        '500':
-          description: Internal Server Error
+            $ref: "#/definitions/ApiResponse"
+        "400":
+          description: "Invalid transactionId"
+        "404":
+          description: "transaction not found"
+          
+          
     put:
-      security:
-        - Bearer: []
       tags:
-        - User Module
-      summary: User Profile API
-      description: API for updating a user profile
-      parameters:
-        - in: header
-          name: Authorization
-          description: Attach Bearer JWT token
-          required: true
-        - in: body
-          name: body
-          description: Update user profile attributes
-          required: true
-          schema:
-            $ref: '#/definitions/UserProfile'
+      - "Transaction"
+      summary: "Update an existing transaction"
+      description: ""
+      operationId: "updateTransactionById"
+      consumes:
+      - "application/json"
       produces:
-        - application/json
+      - "application/json"
+      parameters:
+      - name: "transactionId"
+        in: "query"
+        description: "id of the transacton"
+        required: true
+        type: "string"
       responses:
-        '200':
-          description: User profile retrieved successully
+        "200":
+          description: "successful operation"
           schema:
-            $ref: '#/definitions/ApiResponse'
-        '400':
-          description: Invalid Fields
-        '500':
-          description: Internal Server Error
-securityDefinitions:
-  Bearer:
-    type: apiKey
-    name: Authorization
-    in: header
+            $ref: "#/definitions/ApiResponse"
+        "400":
+          description: "Invalid transactionId"
+        "404":
+          description: "transaction not found"
+          
+          
+          
+    delete:
+      tags:
+      - "Transaction"
+      summary: "Delete an existing transaction"
+      description: ""
+      operationId: "deleteTransactionById"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "transactionId"
+        in: "query"
+        description: "id of the transacton"
+        required: true
+        type: "string"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/ApiResponse"
+        "400":
+          description: "Invalid transactionId"
+        "404":
+          description: "transaction not found"
+        
 definitions:
-  User:
+  Transaction:
+    type: "object"
     properties:
-      email:
-        type: string
-        description: user email
-      password:
-        type: string
-        description: user password
-      firstName:
-        type: string
-        description: user first name
-      lastName:
-        type: string
-        description: user last name
-  Login:
-    properties:
-      email:
-        type: string
-        description: user email
-      password:
-        type: string
-        description: user password
+      id:
+        type: "string"
+        example: "6137c253286d3827245141e1"
+      title:
+        type: "string"
+        example: "Argent Bank Checking (x8349)"
+      amountCents:
+        type: "number"
+        example: 208279
+      description:
+        type: "string"
+        example: "Golden Sun Bakery"
+      state:
+        type: "string"
+        example: "Available Balance"
+      dateISO:
+        type: "string"
+        format: "date-time"
+        example: "2021-09-07T21:00:00.222Z"
+
   ApiResponse:
-    type: object
+    type: "object"
     properties:
-      status:
-        type: integer
+      code:
+        type: "integer"
+        format: "int32"
       message:
-        type: string
-      body:
-        type: object
-        properties:
-          id:
-            type: string
-          email:
-            type: string
-  LoginResponse:
-    type: object
-    properties:
-      token:
-        type: string
-  UserProfile:
-    type: object
-    properties:
-      firstName:
-        type: string
-      lastName:
-        type: string
+        type: "string"
+        
+externalDocs:
+  description: "Find out more about Swagger"
+  url: "http://swagger.io"

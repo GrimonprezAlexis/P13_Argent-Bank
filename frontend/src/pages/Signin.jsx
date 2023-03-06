@@ -2,9 +2,11 @@ import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { useHistory } from 'react-router-dom';
-import { getJWT, getUser } from "../services/user-service";
+
+import { getJWT, getUser } from '../services/userService';
 import { GET_USER_PROFILE } from "../store/actions/constants";
-import Navigation from './Navigation';
+
+import Navigation from '../components/Navigation';
 import '../css/signin.scss';
 
 
@@ -34,6 +36,8 @@ const SignIn = ({ match }) => {
 
     const onSubmit = async e => {
         const jwt = await getJWT(e);
+        if (!jwt) return alert('Login request error');
+
         if (history && jwt) {
             getUser(jwt).then(user => {
                 dispatch({

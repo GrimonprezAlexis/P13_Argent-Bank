@@ -1,41 +1,28 @@
+## Prerequis
+- Node.js v12 (`node -v)
+- MongoDB Community Server (mongo -v)
+
+## Backend
+Endpoint
+- http://localhost:3001/api-docs/#/
+- http://localhost:3001/api/v1/user
+
+## Credentials
+- Email: `tony@stark.com`
+- Password: `password123`
+
+- Email: `steve@rogers.com`
+- Password: `password456`
+
 # A propos
 Projet 13 - Utilisez une API pour un compte utilisateur bancaire avec React
-- Remede Agency : Spécialisée dans le développement d'application web
-- Projet : Nouvelle banque Argent Bank
+✅ ❌
 
-### Fonction
-- Développeur web
-
-✅
-❌
-
-### Details du projet
-Argent Bank essai de percer dans le secteur et a besoin d'aide pour mettre en place son application web React pour le nouveau système d'authentification des utilisateurs.
-
-### Objectif
-- Phase 1 : Authentification et gestions des utilisateurs via une application web
+Mise en place d'une application web React pour Argent Bank (Une nouvelle banque), qui essaie de percer dans le secteur.
+- Phase 1 : Authentification et gestions des utilisateurs (connection, profil, comptes) via une application web
 - Phase 2 : Transactions / Spécifications de endpoints d'API pour une deuxime mission
 
-### Ressource
-- [HTML statisque et le CSS : Page d'accueil / connexion et page de profil](https://github.com/OpenClassrooms-Student-Center/Project-10-Bank-API/tree/master/designs)
-- [Modèles de GitHub issues](https://github.com/OpenClassrooms-Student-Center/Project-10-Bank-API/tree/master/.github/ISSUE_TEMPLATE)
-- [Forker du Repo](https://github.com/OpenClassrooms-Student-Center/Project-10-Bank-API)
-- [Documentation Swagger](https://editor.swagger.io/)
-- [Cours Redux](https://openclassrooms.com/fr/courses/5511091-organisez-votre-application-avec-la-logique-redux)
-
-### Contraintes techniques
-- Créer une application web responsive avec React
-- Utiliser Redux pour gérer le state de l'ensemble de l'app
-- Code Robuste / Lisible
-- Version moderne (ES6 ou supérieure) de JavaScript
-- Validation W3C sans erreur
-
-### Livrable
-- Le lien du repository Github
-- Le code React du projet 
-
-- Contact / Avery Moreau VP Engineering Argent Bank
-
+### Objectif
 > Phase 1
 - L'utilisateur peut visiter la page d'accueil ✅
 - L'utilisateur peut se connecter / déconnecter au sytème ✅
@@ -54,41 +41,17 @@ Argent Bank essai de percer dans le secteur et a besoin d'aide pour mettre en pl
 - Les paramètres possibles pour tenir compte des différents scénarios
 - Les différentes réponses avec les codes de réponse correspondants qui ont un sens pour cet endpoint (ex: 404 : réponse d'erreur d'article inconnu)
 
-### Technlogies
-HTML, CSS, SASS, Javascript, Jquery, NodeJS, React, Github, Heroku, API, Swagger
 
-### Hébergement
-> Heroku
-[#Projet 13 - Argent Bank](https://google.fr/)
+### Ressource
+- [HTML statisque et le CSS : Page d'accueil / connexion et page de profil](https://github.com/OpenClassrooms-Student-Center/Project-10-Bank-API/tree/master/designs)
+- [Modèles de GitHub issues](https://github.com/OpenClassrooms-Student-Center/Project-10-Bank-API/tree/master/.github/ISSUE_TEMPLATE)
+- [Forker du Repo](https://github.com/OpenClassrooms-Student-Center/Project-10-Bank-API)
+- [Documentation Swagger](https://editor.swagger.io/)
+- [Cours Redux](https://openclassrooms.com/fr/courses/5511091-organisez-votre-application-avec-la-logique-redux)
 
-
-# React Express Starter Pack
-> full stack apps with React and Express. Run your client and server with a single command. 
-[React, Redux, API, SCSS, Heroku, starter](https://github.com/GrimonprezAlexis/React-custom-starter)
-
-## Quick Start
-
-``` bash
-# Install dependencies for server
-npm install
-
-# Install dependencies for client
-npm run client-install
-
-# Run the client & server with concurrently
-npm run dev
-
-# Run the Express server only
-npm run server
-
-# Run the React client only
-npm run client
-
-# Server runs on http://localhost:5000 and client on http://localhost:3000
-```
-
-### Author
-[Alexis GRIMONPREZ](grimonprez-alexis.herokuapp.com)
-
-### Version
-1.0.0
+### Contraintes techniques
+- Créer une application web responsive avec React
+- Utiliser Redux pour gérer le state de l'ensemble de l'app
+- Code Robuste / Lisible
+- Version moderne (ES6 ou supérieure) de JavaScript
+- Validation W3C sans erreur

@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from 'react-redux';
-import Navigation from './Navigation';
+import Navigation from '../components/Navigation';
 import '../css/home.scss';
 
 const Home = () => {

@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import '../css/user.scss';
-import { updateUserProfile } from "../services/user-service";
-import { UPDATE_USER_PROFILE } from "../store/actions/constants";
-import Navigation from './Navigation';
 
+import { updateUserProfile } from '../services/userService';
+import { UPDATE_USER_PROFILE } from "../store/actions/constants";
+
+import Navigation from '../components/Navigation';
+import '../css/user.scss';
 
 const User = () => {
     const profile = useSelector((state) => state.user.profile);
