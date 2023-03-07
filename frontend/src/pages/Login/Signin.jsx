@@ -58,7 +58,7 @@ const SignIn = ({ match }) => {
                 <h1>Sign In</h1>
                 <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="input-wrapper">
-                    <label htmlFor="email">Email</label>
+                    <label htmlFor="email">Username</label>
                     <input type="email" id="email"
                         {...register("email", {
                             required: true
@@ -79,7 +79,7 @@ const SignIn = ({ match }) => {
                     <input type="checkbox" id="remember-me" />
                     <label htmlFor="remember-me">Remember me</label>
                 </div>
-                <input className="sign-in-button" type="submit" name="Sign In" />
+                <input className="sign-in-button" type="submit" name="Sign In" value="Sign In" />
                 </form>
             </section>
         </main>

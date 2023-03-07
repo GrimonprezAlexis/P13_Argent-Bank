@@ -61,7 +61,7 @@ const User = () => {
         <Navigation profile={profile}></Navigation>
         <main className="main bg-dark">            
         <div className="header">
-            <h1>Welcome back<br /> {profile.firstName} {profile.lastName}</h1>
+            <h1>Welcome back<br /> {profile.firstName} {profile.lastName}!</h1>
 
             {!editProfile && <button className="edit-button" onClick={getFormUpdateProfile}>Edit Name</button>}
             {showAlert && <div className={`alert alert-${alertType}`} role="alert" >{alertMessage}</div>}
@@ -78,9 +78,9 @@ const User = () => {
                             required: false
                         })}/>
                     </div>
-                    <div className="form-group">
-                        <button type="submit" className="btn btn-outline-primary">Save</button>
-                        <button type="button" className="btn btn-outline-primary" onClick={closeForm}>Cancel</button>
+                    <div className="form-group mt-1rem">
+                        <button type="submit" className="btn btn-outline-primary btn-save">Save</button>
+                        <button type="button" className="btn btn-outline-primary btn-cancel" onClick={closeForm}>Cancel</button>
                     </div>
                 </form>
                 </>

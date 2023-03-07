@@ -1,13 +1,17 @@
 ## Prerequis
 - Node.js v12 (`node -v`)
-- MongoDB Community Server (`mongo -v`)
+- MongoDB Community Server (`mongo -v`) i used MongoCompass
 
 ## Install
 1. Fork Backend and use README to run API on localhost:3001
 https://github.com/GrimonprezAlexis/P13-Argent-Bank-API
 
-2. Install dependencies in `frontend` folder `npm install`
-3. Run the app `npm run start`
+2. Create database `argentBankDB` with GUI Mongo Compass and collection `users`
+3. Populate `argentBankDB`
+> npm run populate-db
+
+3. Install dependencies in `frontend` folder `npm install`
+4. Run the app `npm run start`
 
 ## Backend Endpoint
 - http://localhost:3001/api-docs/#/

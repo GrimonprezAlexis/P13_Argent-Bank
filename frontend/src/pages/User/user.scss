@@ -1,3 +1,7 @@
+.header {
+  padding: 1rem;
+}
+
 .account {
   display: flex;
   justify-content: space-between;
@@ -41,6 +45,7 @@
   color: #fff;
   font-weight: bold;
   padding: 10px;
+  margin-top: 1rem;
 }
 
 .header {
@@ -76,15 +81,57 @@
 }
 
 
+form {
+  margin-top: 1rem;
+}
+
 .form-group {
   display: flex;
   justify-content: center;
 }
 .form-control {
-  width: 60vh;
+  width: 40vh;
   margin: 0 .5rem;
+  padding: 8px;
+  font-size: 1.1rem;
 }
 .btn-outline-primary {
   width: 30vh;
   margin: 0 .6rem;
+}
+
+.btn-save {
+  padding: 8px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-color: #00bc77;
+  color: #00bc77;
+
+  &:hover {
+    background: #00bc77;
+    color: #fff;
+  }
+}
+
+.btn-cancel {
+  padding: 8px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-color: #FF6060;
+  color: #FF6060;
+
+  &:hover {
+    background: #FF6060;
+    color: #fff;
+  }
+}
+
+.alert-success {
+  background: #00bc77;
+  padding: 0.5rem;
+}
+
+.alert-danger {
+  background: #FF6060;
+  padding: 0.5rem;
 }
