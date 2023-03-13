@@ -46,6 +46,8 @@ Mise en place d'une application web React pour Argent Bank (Une nouvelle banque)
 - Les paramètres possibles pour tenir compte des différents scénarios
 - Les différentes réponses avec les codes de réponse correspondants qui ont un sens pour cet endpoint (ex: 404 : réponse d'erreur d'article inconnu)
 
+<img src="https://github.com/GrimonprezAlexis/P13_Argent-Bank/blob/c6218b0a7d8fe7af80983e98a11d6e5eff2e1b0e/Capture%20d%E2%80%99e%CC%81cran%202023-03-14%20a%CC%80%2000.53.12.png" width="500px" height="450px"/>
+
 
 ### Ressource
 - [HTML statisque et le CSS : Page d'accueil / connexion et page de profil](https://github.com/OpenClassrooms-Student-Center/Project-10-Bank-API/tree/master/designs)
