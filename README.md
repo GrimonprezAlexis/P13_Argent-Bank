@@ -2,27 +2,22 @@
 - Node.js v12 (`node -v`)
 - MongoDB Community Server (`mongo -v`) i used MongoCompass
 
-## Install
+## Run
 1. Fork Backend and use README to run API on localhost:3001
 https://github.com/GrimonprezAlexis/P13-Argent-Bank-API
 
-2. Create database `argentBankDB` with GUI Mongo Compass and collection `users`
-3. Populate `argentBankDB`
-> npm run populate-db
-
-3. Install dependencies in `frontend` folder `npm install`
+2. Install dependencies in `frontend` folder `npm install`
 4. Run the app `npm run start`
 
 ## Backend Endpoint
 - http://localhost:3001/api-docs/#/
 - http://localhost:3001/api/v1/user
+- Voir fichier swagger.yaml (https://editor.swagger.io/)
+
 
 ## Credentials
-- Email: `tony@stark.com`
-- Password: `password123`
-
-- Email: `steve@rogers.com`
-- Password: `password456`
+- Email: `tony@stark.com`, Password: `password123`
+- Email: `steve@rogers.com`, Password: `password456`
 
 # A propos
 Projet 13 - Utilisez une API pour un compte utilisateur bancaire avec React
