@@ -34,7 +34,7 @@ Mise en place d'une application web React pour Argent Bank (Une nouvelle banque)
 - L'utilisateur ne peut voir les informations relatives à son propre profil qu'après s'être connecté avec succès ✅
 - L'utilisateur peut modifier le profil et conserver les données dans la base de données ✅
 
-> Phase 2
+> Phase 2 ([voir wireframe](https://github.com/GrimonprezAlexis/P13-Argent-Bank-API/blob/master/designs/wireframes/transactions.png))
 - L'utilisateur peut visualiser toutes leurs transactions pour le mois en cours
 - L'utilisateur peut visualiser les détails d'une transaction d'une autre vue
 - L'utilisateur peut ajouter, modifier, supprimer des informations sur une transaction
