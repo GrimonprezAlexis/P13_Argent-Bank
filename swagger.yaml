@@ -4,109 +4,114 @@ info:
   title: Bank Argent API documentation
   description: Contains all available API endpoints in this codebase
   version: '1.0.0'
+  termsOfService: 'http://swagger.io/terms/'
 
-termsOfService: 'http://swagger.io/terms/'
 host: localhost:3001
 basePath: /api/v1
 
 schemes:
   - http
+  - https
 
 tags:
-- name: "Transaction"
-  description: "Everything about transactions"
-  externalDocs:
-    description: "Find out more"
-    url: "http://swagger.io"
+  - name: Transaction
+    description: Everything about transactions
+    externalDocs:
+      description: Find out more
+      url: 'http://swagger.io'
+
 paths:
   /transactions:
     get:
       security:
         - Bearer: []
       tags:
-        - Transaction
-      summary: Find all transactions
+        - Transaction Module
+      summary: Finds all transactions API
       description: API for fetching user transactions
       parameters:
         - in: header
           name: Authorization
-          description: Bearer JWT token
+          description: Attach Bearer JWT token
           required: true
           type: string
+
       produces:
         - application/json
       responses:
         '200':
-          description: User transactions retrieved successfully
+          description: User transaction retrieved successully
           schema:
-            type: array
+            type: "array"
             items:
-              $ref: '#/definitions/TransactionsResponse'
+              $ref: "#/definitions/TransactionResponse"
         '400':
-          description: Invalid fields
+          description: Invalid Fields
         '500':
-          description: Internal server error
+          description: Internal Server Error
 
-  /transactions/{id}:
+  /transactions/:id:
     get:
       security:
         - Bearer: []
       tags:
-        - Transaction
-      summary: Get transaction by ID
-      description: API for fetching transaction by ID
+        - Transaction Module
+      summary: "Get transaction by id"
+      description: API for fetching transaction id
       parameters:
         - in: header
           name: Authorization
-          description: Bearer JWT token
+          description: Attach Bearer JWT token
           required: true
           type: string
-        - in: path
-          name: id
-          description: ID of the transaction
-          required: true
-          type: string
-      produces:
-        - application/json
-      responses:
-        '200':
-          description: Transaction retrieved successfully
-          schema:
-            $ref: '#/definitions/TransactionDetailsResponse'
-        '400':
-          description: Invalid fields
-        '500':
-          description: Internal server error
 
-    post:
-      tags:
-        - Transaction
-      summary: Add a new transaction
-      description: API for adding a new transaction
-      parameters:
-        - in: header
-          name: Authorization
-          description: Bearer JWT token
+        - name: "id"
+          in: "query"
+          description: "id of the transacton"
           required: true
-          type: string
-        - in: body
-          name: body
-          description: Add transaction payload
-          required: true
-          schema:
-            $ref: '#/definitions/AddTransaction'
+          type: "string"
       produces:
         - application/json
       responses:
         '200':
-          description: Transaction added successfully
+          description: Transaction id retrieved successully
           schema:
             $ref: '#/definitions/TransactionResponse'
         '400':
-          description: Invalid fields
+          description: Invalid Fields
         '500':
-          description: Internal server error
+          description: Internal Server Error 
 
+    post:
+      tags:
+        - Transaction Module
+      summary: "Add a new transaction"
+      description: API for add transaction
+      parameters:
+        - in: header
+          name: Authorization
+          description: Attach Bearer JWT token
+          required: true
+          type: string
+
+        - in: body
+          name: body
+          description: Add Transaction Payload
+          required: true
+          schema:
+            $ref: '#/definitions/NewTransaction'
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Transaction Added Successfully
+          schema:
+            $ref: '#/definitions/TransactionUpdatedResponse'
+        '400':
+          description: Invalid Fields
+        '500':
+          description: Internal Server Error
+             
     put:
       security:
         - Bearer: []
@@ -119,6 +124,7 @@ paths:
           name: Authorization
           description: Attach Bearer JWT token
           required: true
+          type: string
 
         - name: "id"
           in: "query"
@@ -131,14 +137,14 @@ paths:
           description: Update transaction properties
           required: true
           schema:
-            $ref: '#/definitions/UpdateTransaction'
+            $ref: '#/definitions/EditTransaction'
       produces:
         - application/json
       responses:
         '200':
           description: Transaction update successully
           schema:
-            $ref: '#/definitions/TransactionResponse'
+            $ref: '#/definitions/TransactionUpdatedResponse'
         '400':
           description: Invalid Fields
         '500':
@@ -148,7 +154,7 @@ paths:
       security:
         - Bearer: []
       tags:
-        - Transaction
+        - Transaction Module
       summary: "Delete transaction properties"
       description: API for deleting transaction properties
       parameters:
@@ -157,6 +163,7 @@ paths:
           description: Attach Bearer JWT token
           required: true
           type: string
+          
         - in: body
           name: body
           description: Delete Transaction properties Payload
@@ -169,7 +176,7 @@ paths:
         '200':
           description: Transaction property removed successully
           schema:
-            $ref: '#/definitions/TransactionResponse'
+            $ref: '#/definitions/TransactionUpdatedResponse'
         '400':
           description: Invalid Fields
         '500':
@@ -237,6 +244,8 @@ paths:
           name: Authorization
           description: Attach Bearer JWT token
           required: true
+          type: string
+          
       produces:
         - application/json
       responses:
@@ -260,6 +269,8 @@ paths:
           name: Authorization
           description: Attach Bearer JWT token
           required: true
+          type: string
+          
         - in: body
           name: body
           description: Update user profile attributes
@@ -285,65 +296,83 @@ securityDefinitions:
     in: header
 
 definitions:
-  TransactionsResponse:
-    type: object
+  TransactionResponse:
     properties:
       id:
-        type: integer
-      amount:
         type: number
-      description:
-        type: string
-    required:
-      - id
-      - amount
-      - description
-  TransactionDetailsResponse:
-    type: object
-    properties:
-      id:
-        type: integer
-      amount:
-        type: number
-      description:
-        type: string
+        description: "transaction id  (ex: 12345)"
       date:
         type: string
-        format: date-time
-    required:
-      - id
-      - amount
-      - description
-      - date
-  AddTransaction:
-    type: object
-    properties:
-      amount:
-        type: number
+        description: "transaction date (ex: 2023-03-13)"
       description:
         type: string
-    required:
-      - amount
-      - description
-  UpdateTransaction:
+        description: "transaction description (ex: Golden Sun Bakery)"
+      amount:
+        type: integer
+        description: "transaction amount in USD (ex: 20)"
+      balance:
+        type: number
+        description: "transaction balance in USD (ex: 2082.79)"
+      currency:
+        type: string
+        example: $
+      type:
+        type: string
+        description: "transaction type (ex: Electronic)"
+      category:
+        type: string
+        description: "transaction category (ex: Food)"
+      notes:
+        type: string
+        description: "transaction category (ex: Une nouvelle note)"
+  
+  TransactionUpdatedResponse: 
     type: object
     properties:
-      amount:
-        type: number
+      status:
+        type: integer
+      message:
+        type: string
+      body:
+        type: object
+        properties:
+          id:
+            type: number
+
+  NewTransaction:
+    properties:
+      date:
+        type: string
+        description: transaction date
       description:
         type: string
-    required:
-      - amount
-      - description
+        description: transaction description
+      amount:
+        type: number
+        description: transaction amount
+      balance:
+        type: number
+        description: transaction balance
+      type:
+        type: string
+        description: transaction type
+      category:
+        type: string
+        description: transaction category
+      notes:
+        type: string
+        description: transaction category
+
+  EditTransaction:
+    properties:
+      category:
+        type: string
+        description: transaction category
+      notes:
+        type: string
+        description: transaction category
+
   DeleteTransactionProperties:
-    type: object
-    properties:
-      properties:
-        type: array
-        items:
-          type: string
-    required:
-      - properties
     properties:
       date:
         type: boolean
@@ -366,24 +395,6 @@ definitions:
       notes:
         type: boolean
         description: transaction category
-  TransactionResponse:
-    type: object
-    properties:
-      id:
-        type: integer
-      amount:
-        type: number
-      description:
-        type: string
-      date:
-        type: string
-        format: date-time
-    required:
-      - id
-      - amount
-      - description
-      - date
-
 
   User:
     properties:
