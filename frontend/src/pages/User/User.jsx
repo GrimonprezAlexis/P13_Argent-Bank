@@ -12,7 +12,9 @@ import './user.scss';
 import Footer from "../../components/Footer/Footer";
 
 const User = () => {
-    const profile = useSelector((state) => state.user.profile);
+    const profile = useSelector((state) => state.user.profile) || JSON.parse(localStorage.getItem('user'));
+    const jwt = useSelector((state) => state.user.jwt) || localStorage.getItem('jwt');
+
     const dispatch = useDispatch();
     const [editProfile, setEditProfile] = useState(false);
     const [showAlert, setShowAlert] = useState(false);
@@ -38,7 +40,7 @@ const User = () => {
             setAlertType('warning');
             setShowAlert(true);
         } else {
-            updateUserProfile(e, localStorage.getItem('jwt')).then(data => {
+            updateUserProfile(e, jwt).then(data => {
                 const alertStatus = data.status === 200 ? 'success' : 'danger';
                 setAlertType(alertStatus);
                 setAlertMessage(data.message);

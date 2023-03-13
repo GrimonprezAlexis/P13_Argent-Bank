@@ -12,10 +12,9 @@ export async function getJWT(e) {
             email: e.email, 
             password: e.password
         });
-        localStorage.setItem('jwt', res.data.body.token);
-        return res.data.body.token;
+        return res.data.body;
       } catch (e) {
-        console.log(e)
+        return e.response.data;
     }
 }
 
@@ -26,13 +25,11 @@ export async function getJWT(e) {
  */
 export const getUser = async (jwt) => {
     const config = { headers: { "Authorization" : `Bearer ${jwt}`}};
-
     try {
         const res = await axios.post(`${apiUrl}/api/v1/user/profile`, {}, config);
         return res.data.body;
-
       } catch (e) {
-        console.log(e)
+        return e.response.data;
     }
 }
 
@@ -50,7 +47,7 @@ export const updateUserProfile = async (e, jwt) => {
         console.log('updateUserProfile res', res);
         return res.data;
       } catch (e) {
-        console.log(e)
+        return e.response.data;
     }
 }
 
